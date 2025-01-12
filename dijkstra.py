@@ -2,10 +2,6 @@ import heapq
 from typing import Dict, Any
 
 def dijkstra(graph: Dict[Any, Dict[Any, float]], start: Any) -> Dict[Any, float]:
-    """
-    Computes the shortest paths from start node to all other nodes in a weighted graph.
-    Uses a priority queue (min-heap) for efficiency.
-    """
     distances = {node: float('inf') for node in graph}
     distances[start] = 0.0
     pq = [(0.0, start)]
@@ -20,4 +16,8 @@ def dijkstra(graph: Dict[Any, Dict[Any, float]], start: Any) -> Dict[Any, float]
                 heapq.heappush(pq, (new_dist, neighbor))
     return distances
 
-# Commit updates step 3 for robustness
+if __name__ == '__main__':
+    g = {'A': {'B': 1, 'C': 4}, 'B': {'C': 2, 'D': 6}, 'C': {'D': 3}, 'D': {}}
+    print(dijkstra(g, 'A'))
+
+# Commit updates step 4 for robustness
