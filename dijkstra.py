@@ -1,4 +1,5 @@
 import heapq
+import time
 from typing import Dict, Any
 
 def dijkstra(graph: Dict[Any, Dict[Any, float]], start: Any) -> Dict[Any, float]:
@@ -18,6 +19,9 @@ def dijkstra(graph: Dict[Any, Dict[Any, float]], start: Any) -> Dict[Any, float]
 
 if __name__ == '__main__':
     g = {'A': {'B': 1, 'C': 4}, 'B': {'C': 2, 'D': 6}, 'C': {'D': 3}, 'D': {}}
-    print(dijkstra(g, 'A'))
+    t0 = time.perf_counter()
+    res = dijkstra(g, 'A')
+    t1 = time.perf_counter()
+    print(f'Done in {t1-t0:.6f}s: {res}')
 
-# Commit updates step 4 for robustness
+# Commit updates step 5 for robustness
