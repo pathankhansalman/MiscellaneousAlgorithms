@@ -2,6 +2,8 @@ import heapq
 from typing import Dict, Any
 
 def dijkstra(graph: Dict[Any, Dict[Any, float]], start: Any) -> Dict[Any, float]:
+    if not graph or start not in graph:
+        return {}
     distances = {node: float('inf') for node in graph}
     distances[start] = 0.0
     pq = [(0.0, start)]
@@ -18,4 +20,4 @@ def dijkstra(graph: Dict[Any, Dict[Any, float]], start: Any) -> Dict[Any, float]
                 heapq.heappush(pq, (new_dist, neighbor))
     return distances
 
-# Commit updates step 8 for robustness
+# Commit updates step 9 for robustness
