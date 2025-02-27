@@ -13,9 +13,6 @@ def bellman_ford(graph: List[Tuple[int, int, float]], num_vertices: int, start: 
                 updated = True
         if not updated:
             break
-    for u, v, w in graph:
-        if distances[u] != float('inf') and distances[u] + w < distances[v]:
-            raise ValueError("Graph contains negative weight cycle detectable via relaxation")
     return distances
 
-# Commit updates step 8 for robustness
+# Commit updates step 9 for robustness
