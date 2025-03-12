@@ -1,4 +1,7 @@
 class FenwickTree:
+    """
+    Binary Indexed Tree (Fenwick Tree) for prefix sum queries and point updates in O(log N).
+    """
     def __init__(self, size: int):
         self.size = size
         self.tree = [0] * (size + 1)
@@ -18,4 +21,4 @@ class FenwickTree:
     def range_query(self, l: int, r: int) -> int:
         return self.query(r) - self.query(l - 1)
 
-# Commit updates step 3 for robustness
+# Commit updates step 4 for robustness
