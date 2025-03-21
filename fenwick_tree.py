@@ -1,17 +1,14 @@
 class FenwickTree:
-    # Space Complexity: O(N) to store tree data
-    # Update Complexity: O(log N)
-    # Query Complexity: O(log N)
-    def __init__(self, size: int):
-        self.size = size
-        self.tree = [0] * (size + 1)
+    def __init__(self, arr: list):
+        self.size = len(arr)
+        self.tree = [0] * (self.size + 1)
+        for i, val in enumerate(arr):
+            self.update(i + 1, val)
     def update(self, idx: int, val: int) -> None:
-        # Add value to elements
         while idx <= self.size:
             self.tree[idx] += val
             idx += idx & (-idx)
     def query(self, idx: int) -> int:
-        # Read cumulative sum
         total = 0
         while idx > 0:
             total += self.tree[idx]
@@ -20,4 +17,4 @@ class FenwickTree:
     def range_query(self, l: int, r: int) -> int:
         return self.query(r) - self.query(l - 1)
 
-# Commit updates step 6 for robustness
+# Commit updates step 7 for robustness
