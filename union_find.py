@@ -1,7 +1,4 @@
 class UnionFind:
-    """
-    Disjoint Set Union (DSU) / Union-Find with path compression and rank optimization.
-    """
     def __init__(self, n: int):
         self.parent = list(range(n))
         self.rank = [0] * n
@@ -25,4 +22,10 @@ class UnionFind:
             return True
         return False
 
-# Commit updates step 5 for robustness
+if __name__ == '__main__':
+    uf = UnionFind(10)
+    uf.union(1, 2)
+    uf.union(2, 3)
+    print(uf.find(1) == uf.find(3)) # True
+
+# Commit updates step 6 for robustness
