@@ -21,11 +21,7 @@ class UnionFind:
             self.count -= 1
             return True
         return False
+    def connected(self, i: int, j: int) -> bool:
+        return self.find(i) == self.find(j)
 
-if __name__ == '__main__':
-    uf = UnionFind(10)
-    uf.union(1, 2)
-    uf.union(2, 3)
-    print(uf.find(1) == uf.find(3)) # True
-
-# Commit updates step 6 for robustness
+# Commit updates step 7 for robustness
