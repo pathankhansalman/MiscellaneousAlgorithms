@@ -1,8 +1,10 @@
+from typing import List
+
 class UnionFind:
     def __init__(self, n: int):
-        self.parent = list(range(n))
-        self.rank = [0] * n
-        self.count = n
+        self.parent: List[int] = list(range(n))
+        self.rank: List[int] = [0] * n
+        self.count: int = n
     def find(self, i: int) -> int:
         if self.parent[i] != i:
             self.parent[i] = self.find(self.parent[i])
@@ -21,7 +23,5 @@ class UnionFind:
             self.count -= 1
             return True
         return False
-    def connected(self, i: int, j: int) -> bool:
-        return self.find(i) == self.find(j)
 
-# Commit updates step 7 for robustness
+# Commit updates step 8 for robustness
