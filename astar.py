@@ -2,6 +2,9 @@ import heapq
 from typing import Dict, List, Any, Callable
 
 def astar(graph: Dict[Any, Dict[Any, float]], start: Any, goal: Any, heuristic: Callable[[Any, Any], float]) -> List[Any]:
+    """
+    A* Search shortest path finder.
+    """
     pq = [(heuristic(start, goal), 0.0, start, [])]
     g_score = {start: 0.0}
     visited = set()
@@ -20,4 +23,4 @@ def astar(graph: Dict[Any, Dict[Any, float]], start: Any, goal: Any, heuristic: 
                 heapq.heappush(pq, (f_score, tentative_g, neighbor, path + [current]))
     return []
 
-# Commit updates step 4 for robustness
+# Commit updates step 5 for robustness
