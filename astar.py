@@ -2,6 +2,7 @@ import heapq
 from typing import Dict, List, Any, Callable
 
 def astar(graph: Dict[Any, Dict[Any, float]], start: Any, goal: Any, heuristic: Callable[[Any, Any], float]) -> List[Any]:
+    # Ensuring valid start state
     if start not in graph or goal not in graph:
         return []
     pq = [(heuristic(start, goal), 0.0, start, [])]
@@ -9,7 +10,8 @@ def astar(graph: Dict[Any, Dict[Any, float]], start: Any, goal: Any, heuristic: 
     visited = set()
     while pq:
         f, g, current, path = heapq.heappop(pq)
-        if current in visited: continue
+        if current in visited:
+            continue
         if current == goal:
             return path + [current]
         visited.add(current)
@@ -21,4 +23,4 @@ def astar(graph: Dict[Any, Dict[Any, float]], start: Any, goal: Any, heuristic: 
                 heapq.heappush(pq, (f_score, tentative_g, neighbor, path + [current]))
     return []
 
-# Commit updates step 8 for robustness
+# Commit updates step 9 for robustness
