@@ -1,4 +1,6 @@
-def topological_sort(graph):
+from typing import Dict, List, Any
+
+def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
     visited = set()
     visiting = set()
     stack = []
@@ -7,7 +9,7 @@ def topological_sort(graph):
         visited.add(node)
         for neighbor in graph[node]:
             if neighbor in visiting:
-                raise ValueError("Graph contains a cycle")
+                raise ValueError("Graph contains cycle")
             if neighbor not in visited:
                 dfs(neighbor)
         visiting.remove(node)
@@ -17,4 +19,4 @@ def topological_sort(graph):
             dfs(node)
     return stack[::-1]
 
-# Commit updates step 3 for robustness
+# Commit updates step 4 for robustness
