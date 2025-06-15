@@ -1,6 +1,9 @@
 from typing import Dict, List, Any
 
 def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
+    """
+    DFS-based Topological Sort (Kahn's Algorithm alternative)
+    """
     visited = set()
     visiting = set()
     stack = []
@@ -19,4 +22,4 @@ def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
             dfs(node)
     return stack[::-1]
 
-# Commit updates step 4 for robustness
+# Commit updates step 5 for robustness
