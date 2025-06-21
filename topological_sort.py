@@ -7,7 +7,7 @@ def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
     def dfs(node):
         visiting.add(node)
         visited.add(node)
-        for neighbor in graph[node]:
+        for neighbor in graph.get(node, []):
             if neighbor in visiting:
                 raise ValueError("Graph contains cycle")
             if neighbor not in visited:
@@ -19,8 +19,4 @@ def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
             dfs(node)
     return stack[::-1]
 
-if __name__ == '__main__':
-    g = {'A': ['B', 'C'], 'B': ['D'], 'C': ['D'], 'D': []}
-    print(topological_sort(g))
-
-# Commit updates step 6 for robustness
+# Commit updates step 7 for robustness
