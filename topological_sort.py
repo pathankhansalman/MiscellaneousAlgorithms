@@ -1,6 +1,8 @@
 from typing import Dict, List, Any
 
 def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
+    if not graph:
+        return []
     visited = set()
     visiting = set()
     stack = []
@@ -19,4 +21,4 @@ def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
             dfs(node)
     return stack[::-1]
 
-# Commit updates step 7 for robustness
+# Commit updates step 8 for robustness
