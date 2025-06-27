@@ -11,7 +11,7 @@ def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
         visited.add(node)
         for neighbor in graph.get(node, []):
             if neighbor in visiting:
-                raise ValueError("Graph contains cycle")
+                raise ValueError(f"Graph contains a directed cycle containing {neighbor}")
             if neighbor not in visited:
                 dfs(neighbor)
         visiting.remove(node)
@@ -21,4 +21,4 @@ def topological_sort(graph: Dict[Any, List[Any]]) -> List[Any]:
             dfs(node)
     return stack[::-1]
 
-# Commit updates step 8 for robustness
+# Commit updates step 9 for robustness
